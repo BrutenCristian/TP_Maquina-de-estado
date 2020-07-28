@@ -1,2 +1,3 @@
 # TP_Maquina-de-estado
 Emulación de un lazarillo electrónico
+Mi propuesta es emular el funcionamiento básico de un lazarillo robótico, analiza si delante del sensor de proximidad hay algún obstáculo. De haberlo, esperara un lapso de tiempo para evaluar si el obstáculo sigue presente o ya tiene camino libre. Si el obstáculo sigue ahí entonces, analiza 90° a la derecha, si este nuevo camino esta libre avanzara en esta dirección. Pero, si no esta libre girara 180° pasando por la posición incial y situandose 90° de la inicial, hacia la izquierda y realizara el análisis, de no haber obstáculo avanzará hacia la izquierda. En el caso de estar bloqueado el lado izquierdo, volvera a analizar el frente.
