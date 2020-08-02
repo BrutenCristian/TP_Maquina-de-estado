@@ -1,0 +1,4 @@
+El sensor de proximidad debe estar constantemente analizando si hay un obstáculo al frente.
+El tiempo de espera esta pensado para que si apareció un obstáculo en movimiento, pero después desaparece para no cambiar la dirección (por ejemplo, se cruza un perro.).
+La velocidad de movimiento la calcule en 408,08 rpm debido a que una rueda para este proyecto puede ser la que se vende en un kit de arduino y tiene un diámetro de 6,5cm, y al definir que una persona promedio camina a 5km/h se calculo esas rpm para este caso.
+El tiempo de giro es el tiempo en segundos que le tomaría al lazarillo(de 30 cm de ancho) en dar 1/4 de giro, es decir mover 90° la vista del sensor.
