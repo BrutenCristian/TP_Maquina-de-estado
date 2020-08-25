@@ -10,3 +10,6 @@ vel 408,08
 
 //tgiro [seg], timepo que le toma al lazarillo dar 1/4 de giro
 tgiro 16,96
+
+//Distancia[Cm], Distancia maxima a la que puede estar el lazarillo de la persona, si supera esta distancia el lazarillo se detiene.
+dist 40
