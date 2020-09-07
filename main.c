@@ -4,6 +4,7 @@
 int main()
 {
    int dist, estado=0,obs;
+   char mov;
    Bienvenida();
    printf("\nEsta en el rango de distancia?\n1-si\t0-no");
    fflush(stdin);
@@ -17,11 +18,11 @@ int main()
         obs=Analizo();//devuelve 0 si no hay obstaculo, 1 si lo hay
         break;
        case 1://devuelve 0 si no hay obstaculo, 1 si lo hay
-        Giro();
+        mov=Giro();//devuelve d si giro a la derecha, sino e
         obs=Analizo();
         break;
        case 2://devuelve 0 si hay obstaculo, 1 si lo hay
-        Giro();
+        mov=Giro();//devuelve i si giro a la izquierda, sino e
         obs=Analizo();
         break;
        case 3:
@@ -37,6 +38,6 @@ int main()
            estado=0;
        }
        }while(obs!=0);//con el 0 no hay obstaculo
-       Avanza();
+       mov=Avanza();//devuelve a si avanza, sino e
    }
 }
