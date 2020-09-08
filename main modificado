@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Lazarillo.h"
+int main()
+{
+    estados_t est;
+    unsigned char aux='0';
+    do
+    {
+        est.enc=Encendido();
+        if((est.dist=Distancia())==0)
+        {
+            switch(aux)
+            {
+        case '0':
+            while(aux!='1'&&aux!='4')
+            {
+                est.obs=Analizo_F();
+                if(est.obs=='0')
+                {
+                    aux='4';
+                }
+                else
+                {
+                    aux='1';
+                }
+            }
+            break;
+        case '1':
+            while(aux!='2'&&aux!='4')
+            {
+                est.obs=Analizo_D();
+                if(est.obs==0)
+                {
+                    aux='4';
+                }
+                else
+                {
+                    aux='2';
+                }
+            }
+            break;
+        case '2':
+            while(aux!='3'&&aux!='4')
+            {
+                est.obs=Analizo_I();
+                if(est.obs=='0')
+                {
+                    aux='4';
+                }
+                else
+                {
+                    aux='3';
+                }
+            }
+            break;
+        case '3':
+            est.delay=Espera();
+            aux='0';
+        case '4':
+            est.mot_d=Avanza();
+            est.mot_i=Avanza();
+            }
+        }
+        else
+        {
+            est.delay=Espera();
+        }
+    }while(enc!=0);
+}
