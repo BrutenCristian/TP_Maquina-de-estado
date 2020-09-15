@@ -1,0 +1,24 @@
+#ifndef LAZARILLO_H_INCLUDED
+#define LAZARILLO_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+typedef struct
+{
+    unsigned char enc;
+    unsigned char dist=1;
+    unsigned char obs=1;
+    unsigned char delay=1;
+    unsigned char mot_d=1;
+    unsigned char mot_i=1;
+}estados_t;
+unsigned char Distancia(void);
+unsigned char Analizo_F(void);
+unsigned char Analizo_D(void);
+unsigned char Analizo_I(void);
+unsigned char Espera(void);
+unsigned char Avanza(void);
+unsigned char Encendido(void);
+unsigned char valor_conf(char V[]);
+char * getkey(char *key);
