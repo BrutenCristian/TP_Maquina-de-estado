@@ -1,0 +1,7 @@
+Emulacion de un lazarillo electronico: Mi propuesta es emular el comportamiento de este aparato.
+Primero, y lo hara constantemente, verificara con un sensor de proximidad si esta dentro del rango de distancia estipulado, 40Cm separado del usuario.
+Luego, si esta dentro del rango, procedera a analizar si justo enfrente del dispositivo hay algun obstaculo, de haberlo, pasara al siguiente analisis, en caso de que no haya un obstaculo, avanzara a la velocidad definida, 408rpm.
+Si detecto un obstacula, girara 90° hacia la derecha, y repetira el analisis, si no hay obstaculo, avanzara.
+En el caso de la aparicion de un segundo obstaculo, procedera a girar, desde la posicion incial (Primero retorna a esta), 90° hacia la izquierda, y realizara el analisis, si no encuentra obstaculos procedera a avanzar.
+Si encuentra un tercer obstaculo, permanecera inmovil durante 10 segundos, y luego volvera a iniciar los analisis.
+En el caso de no estar dentro del rango de distancia, permanecera inmovil durante 10 segundos, y volvera a analizar a que distancia se encuentra del usuario, si el usuario no se encuentra cerca, el dispositivo no se movera.

@@ -1,0 +1,1 @@
+El motivo de la modificacion fue que habia un bloque del diagrama original que proponia una pregunta: "¿Hay obstaculo?", lo cual no fue considerado como un estado mas, sino como parte de otros estados, en este caso los analisis. Tambien unifique dos estados que esra igual, los relacionados a un tiempo de espera.
