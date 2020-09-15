@@ -1,0 +1,5 @@
+Aclaraciones tenidas en cuenta para la configuracion:
+*El sensor de proximidad esta analizando contuinamente si se encuentra un obstaculo al frente(entendieno por frente la posicion actual, no la inicial), si el sensor tiene un valor de 0 es que no detecta ningun obstaculo.
+*A cada analisis se le da un tiempo de espera de 5 segundos, este tiempo tiene el proposito de no cambiar la ruta en el caso que algo en movimiento se atraveso en el camino.
+*La velocidad del movimiento se calculo en 408 rpm(aproximado) debido a que la rueda del dispositivo tiene 6,5Cm de diametro, y se definio que una persona promedio camina a 5Km/h.
+*El tiempo de giro del dispositivo es de, aproximadamente, 17 segundos debido a que es el tiempo en el que se recorre 1/4 de giro de una circunferencia de 30Cm de diametro.
