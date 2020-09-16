@@ -8,16 +8,22 @@ int main()
     var=&valores;
     var->obs='0';
     Bienvenida();
-    do
+       while(1)
     {
-        while(i<2)
+        (*opciones[i])(var);
+        i++;
+        printf("\nSi desea apagar el lazarillo presione esc.");
+        if(kbhit)
         {
-            *var=(*opciones[i])(var);
-            i++;
+            ch=getch();
+            if((int)ch==27)
+            {
+                break;
+            }
         }
-        printf("\nDesea dejar el lazarillo prendido?\n1-No\t0-Si\n");
-        fflush(stdin);
-        scanf("%d",&enc);
-        i=0;
-    }while(enc!=1);
+        if(i==2)
+        {
+            i=0;
+        }
+    }
 }

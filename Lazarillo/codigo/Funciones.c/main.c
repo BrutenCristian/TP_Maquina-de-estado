@@ -77,27 +77,27 @@ unsigned char Frente(void)
 }
 unsigned char Derecha(void)
 {
-    char d='d', f='f', obs;
-    Giros(d);
+    char obs;
+    Giros(DERECHA);
     printf("\n¿Hay un obstaculo al frente?\n1-No\t0-Si\n");
     fflush(stdin);
     scanf("%c",&obs);
     if(obs=='0')
     {
-        Giros(f);
+        Giros(FRENTE_DESDE_DERECHA);
     }
     return (unsigned char)obs;
 }
 unsigned char Izquierda(void)
 {
-    char i='i',f='F',obs;
-    Giros(i);
+    char obs;
+    Giros(IZQUIERDA);
     printf("\n¿Hay un obstaculo al frente?\n1-No\t0-Si\n");
     fflush(stdin);
     scanf("%c",&obs);
     if(obs=='0')
     {
-        Giros(f);
+        Giros(FRENTE_DESDE_IZQUIERDA);
     }
     return obs;
 }
@@ -110,7 +110,7 @@ void Giros(unsigned char o)
     t=valor(tg);
     switch(o)
     {
-    case 'd'://giro a la derecha
+    case DERECHA://giro a la derecha
         giro.motor_d=(float)v*-1;
         giro.motor_i=(float)v;
         printf("\nEl lazarillo esta girando hacia la derecha.");
@@ -120,7 +120,7 @@ void Giros(unsigned char o)
         printf("\nEl giro finalizo");
         system("pause");
         break;
-    case 'f'://voy desde la derecha a la posicion inicial
+    case FRENTE_DESDE_DERECHA://voy desde la derecha a la posicion inicial
         giro.motor_d=(float)v;
         giro.motor_i=(float)v*-1;
         printf("\nEl lazarillo esta volviendo a la posicion inicial desde la derecha.");
@@ -130,7 +130,7 @@ void Giros(unsigned char o)
         printf("\nEl giro finalizo.");
         system("pause");
         break;
-    case 'i'://giro desde la posicion inicial hacia la izquierda
+    case IZQUIERDA://giro desde la posicion inicial hacia la izquierda
         giro.motor_d=(float)v;
         giro.motor_i=(float)v*-1;
         printf("\nEl lazarillo esta girando desde la posicion inicial hacia la izquierda.");
@@ -140,7 +140,7 @@ void Giros(unsigned char o)
         printf("\nEl giro finalizo.");
         system("pause");
         break;
-    case 'F'://giro desde la izquierda hacia la posicion inicial.
+    case FRENTE_DESDE_IZQUIERDA://giro desde la izquierda hacia la posicion inicial.
         giro.motor_d=(float)v*-1;
         giro.motor_i=(float)v;
         printf("\nEl lazarillo esta regresando a la posicion inicial desde el lado izquierdo.");
