@@ -1,11 +1,15 @@
 #ifndef LAZARILLO_LIB_H_INCLUDED
 #define LAZARILLO_LIB_H_INCLUDED
 
+#define DERECHA 'd'
+#define IZQUIERDA 'i'
+#define FRENTE_DESDE_IZQUIERDA 'f'
+#define FRENTE_DESDE_DERECHA 'F'
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
+#include <conio.h>
 typedef struct
 {
     float distancia;
