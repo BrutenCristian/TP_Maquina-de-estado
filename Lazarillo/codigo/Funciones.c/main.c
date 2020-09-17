@@ -9,14 +9,14 @@ void Bienvenida(void)
 }
 datos_t Reposo(datos_t *val)
 {
-    char dist[]="Dist", sensor[]="Sensor", td[]="Esp", sens;
-    int t,l, i=0;
+    char /*dist[]="Dist",*/ sensor[]="Sensor", td[]="Esp", sens;
+    int t/*, i=0*/;
     unsigned char (*Analisis[])()={Frente,Derecha,Izquierda};
-    float dist_conf;
-    dist_conf=(float)valor(dist);
+    //float dist_conf;
+    //dist_conf=(float)valor(dist);
     sens=(char)valor(sensor);
     t=valor(td);
-    do
+    /*do
     {
         val->distancia=Distancia();
         if(dist_conf<val->distancia)
@@ -28,25 +28,27 @@ datos_t Reposo(datos_t *val)
             system("pause");
         }
     }while(dist_conf<val->distancia);
-
-    do
-    {
+*/
+ //   do
+   // {
         val->motor_d=0;
         val->motor_i=0;
-        for(i=0;i<3;i++)
+        for(int i=0;i<3;i++)
         {
             val->obs=(*Analisis[i])();
             if(val->obs=='1')
             {
+                val->estado=MOVIMIENTO;
                 break;
             }
         }
         if(val->obs=='0')
         {
+            val->estado=REPOSO;
             printf("\nEsperando.");
             Espera(t);
         }
-    }while(val->obs!='1');
+   // }while(val->obs!='1');
     return *val;
 }
 datos_t Movimiento(datos_t *val)
@@ -57,15 +59,54 @@ datos_t Movimiento(datos_t *val)
     val->motor_d=v;
     val->motor_i=v;
     printf("\nLos motores se mueven a %.2f rpm",v);
+    printf("\nHay un obstaculo al frente?\n1-No\t0-Si\n");
+    fflush(stdin);
+    scanf("%c",&val->obs);
+    if(val->obs=='1')
+    {
+        val->estado=REPOSO;
+    }
+    else
+    {
+        val->estado=MOVIMIENTO;
+    }
     return *val;
 }
-float Distancia(void)
+/*float Distancia(void)
 {
     float dist;
     printf("\n¿A que distancia se encuentra el lazarillo del usuario?\n");
     fflush(stdin);
     scanf("%f",&dist);
     return dist;
+}*/
+datos_t Distancia(datos_t *val)
+{
+    char dist[]="Dist", td[]="Esp";
+    float dist_conf;
+    int t;
+    dist_conf=(float)valor(dist);
+    t=valor(td);
+    printf("\nA que distancia(en Cm) se encuentra el lazarillo del usuario? ");
+    fflush(stdin);
+    scanf("%f",&val->distancia);
+    if(dist_conf<val->distancia)
+    {
+        val->rango_d=FUERA;
+        printf("\nFuera del rango de distancia.");
+        val->motor_d=0;
+        val->motor_i=0;
+        Espera(t/2);
+        system("pause");
+        return *val;
+    }
+    else
+    {
+        val->rango_d=ADENTRO;
+        printf("\nDentro del rango de distancia.");
+        system("pause");
+        return *val;
+    }
 }
 unsigned char Frente(void)
 {
