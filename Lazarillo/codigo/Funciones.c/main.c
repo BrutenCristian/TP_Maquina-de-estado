@@ -33,6 +33,12 @@ datos_t Reposo(datos_t *val)
    // {
         val->motor_d=0;
         val->motor_i=0;
+        Distancia(val);
+        if(val->rango_d==FUERA)
+        {
+            val->estado=REPOSO;
+            return *val;
+        }
         for(int i=0;i<3;i++)
         {
             val->obs=(*Analisis[i])();
@@ -56,13 +62,19 @@ datos_t Movimiento(datos_t *val)
     char vel[]="Vel";
     float v;
     v=(float)valor(vel);
+    Distancia(val);
+     if(val->rango_d==FUERA)
+        {
+            val->estado=REPOSO;
+            return *val;
+        }
     val->motor_d=v;
     val->motor_i=v;
     printf("\nLos motores se mueven a %.2f rpm",v);
     printf("\nHay un obstaculo al frente?\n1-No\t0-Si\n");
     fflush(stdin);
     scanf("%c",&val->obs);
-    if(val->obs=='1')
+    if(val->obs=='0')
     {
         val->estado=REPOSO;
     }
